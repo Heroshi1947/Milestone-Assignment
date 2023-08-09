@@ -1,0 +1,10 @@
+#movingImage {
+    position: absolute;
+    top: 10;
+    left: 10;
+    transition: top 0.2s, left 0.2s;
+    height: 100px;
+    width: 100px;
+  }
+
+

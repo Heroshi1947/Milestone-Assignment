@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Highlighting</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Highlighted Words are Greater than 8 characters</h1>
+    <p id="paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod eu sem a ultricies. In sit amet
+      volutpat mi. Proin tincidunt, lorem a vulputate condimentum, lorem ipsum consectetur massa, sit
+      amet congue orci nisi vitae felis. Fusce in metus nibh. Donec porta dictum risus, a convallis justo
+      rhoncus vitae. Etiam nec diam consectetur, commodo sapien sit amet, hendrerit justo.
+    </p>
+    
+<!------------------------------------------ JavaScript----------------------------------------- -->
+
+    <script >
+        // Get the paragraph element using its ID
+const paragraph = document.getElementById("paragraph");
+
+// Get an array of words from the paragraph
+const words = paragraph.textContent.split(" ");
+
+// Loop through the words and check their length
+for (let i = 0; i < words.length; i++) {
+  const word = words[i];
+    if (word.length > 8) {
+    // Create a new span element
+    const span = document.createElement("span");
+    // Set the text content of the span element to the word
+    span.textContent = word;
+    // Add the 'highlight' class to the span element
+    span.classList.add("highlight");
+    // Replace the word in the paragraph with the span element
+    paragraph.innerHTML = paragraph.innerHTML.replace(word, span.outerHTML);
+  }
+}
+    </script>
+  </body>
+</html>
